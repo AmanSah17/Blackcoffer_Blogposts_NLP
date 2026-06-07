@@ -1,15 +1,14 @@
 """
 nlp_pipeline.py
 ===============
-Production-grade NLP Text Analysis Pipeline
+sNLP Text Analysis Pipeline
 ============================================
 
-Author      : Blackcoffer Assignment — Custom NLP Engine
+Author      : Aman Sah , Email : amansah1717@gmail.com
 Description : A fully object-oriented, modular, and documented NLP pipeline
               that reads scraped article text files, computes 13 linguistic
               and sentiment variables as specified in ``Text Analysis.docx``,
-              and persists the results in an Excel workbook that mirrors the
-              schema of ``Output Data Structure.xlsx``.
+              and persists the results in an Excel workbook.
 
 Algorithm Overview (per Text Analysis.docx)
 --------------------------------------------
@@ -59,9 +58,6 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, FrozenSet, List, Optional, Set, Tuple
 
-# ---------------------------------------------------------------------------
-# Third-party imports
-# ---------------------------------------------------------------------------
 import nltk
 import pandas as pd
 from tqdm import tqdm
@@ -134,7 +130,7 @@ class PipelineConfig:
     """
 
     root: Path = field(
-        default_factory=lambda: Path(r"D:\gemma4\Test_assignment_20211030")
+        default_factory=lambda: Path(__file__).resolve().parent.parent
     )
     encoding: str = "latin-1"
 
@@ -1102,7 +1098,7 @@ class NLPPipeline:
     config : PipelineConfig, optional
         Custom configuration.  If not provided, the default
         ``PipelineConfig()`` is used (pointing to the standard
-        ``D:\\gemma4\\Test_assignment_20211030`` workspace).
+        parent directory workspace).
 
     Typical Usage
     -------------

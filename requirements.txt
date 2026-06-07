@@ -1,0 +1,8 @@
+pandas
+requests
+trafilatura
+beautifulsoup4
+tqdm
+selenium
+nltk
+openpyxl
